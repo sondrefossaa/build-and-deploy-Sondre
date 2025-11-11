@@ -17,3 +17,4 @@ export const getSecondsLeftOfYear = (now) => {
     const nowMillis = now.getTime();
     return Math.floor((startOfNextYearMillis - nowMillis) / 1000);
 }
+const test = 0
