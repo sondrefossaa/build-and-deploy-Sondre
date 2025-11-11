@@ -1,7 +1,7 @@
 export const getTimeString = (now) => {
     const hour = now.getHours();
     const minute = now.getMinutes();
-    const seconds = now.getSeconds();
+    const seconds = String(now.getSeconds()).padStart(2, "0");
     return `${hour}:${minute}:${seconds}`
 }
 
@@ -16,4 +16,11 @@ export const getSecondsLeftOfYear = (now) => {
     const startOfNextYearMillis = startOfNextYear.getTime();
     const nowMillis = now.getTime();
     return Math.floor((startOfNextYearMillis - nowMillis) / 1000);
+}
+
+export const getMinutesLeftOfYear = (now) => {
+    const startOfNextYear = getNextYearDate(now);
+    const startOfNextYearMillis = startOfNextYear.getTime();
+    const nowMillis = now.getTime();
+    return Math.floor(((startOfNextYearMillis - nowMillis) / 1000) / 60);
 }
